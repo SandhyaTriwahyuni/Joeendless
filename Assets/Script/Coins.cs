@@ -20,6 +20,7 @@ public class Coins : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().PlaySound("PickCoin");
             PlayerManager.numberOfscore += 1;
             Debug.Log("Coins:"+PlayerManager.numberOfscore);
             Destroy(gameObject);

@@ -29,6 +29,10 @@ public class PlayerManager : MonoBehaviour
             GameOverPanel.SetActive(true);
         }
         ScoreText.text = "SCORE:" + numberOfscore;
+        
+
+
+
         if (SwipeManager.tap)
         {
             isGameStarted = true;

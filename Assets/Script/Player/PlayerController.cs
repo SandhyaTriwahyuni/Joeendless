@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviour
         if(hit.transform.tag == "Obstacles")
         {
             PlayerManager.gameover = true;
+            FindObjectOfType<AudioManager>().PlaySound("GameOver");
             animator.SetTrigger("Die");
             Debug.Log("ANIMATOR: Trigger Die diaktifkan");
         }
