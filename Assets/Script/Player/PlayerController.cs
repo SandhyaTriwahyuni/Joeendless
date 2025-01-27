@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 direction;
     public float forwardSpeed;
+    public float maxSpeed;
 
     public Animator animator;
 
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public float JumpForce;
     public float Gravity = -20;
+
+    
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -39,17 +42,22 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
+        animator.SetBool("isStarted", true);
+        if (forwardSpeed < maxSpeed)
+            forwardSpeed += 0.1f * Time.deltaTime;
+     
         if (animator == null)
         {
             Debug.LogError("ANIMATOR: Animator masih NULL saat UPDATE!");
             return;
         }
-
+       
         animator.SetBool("isStarted", true);
         Debug.Log("ANIMATOR: Set isStarted = true");
         direction.z = forwardSpeed;
 
+        animator.SetBool("isGrounded", true);
+        Debug.Log("ANIMATOR: Set isGrounded = true");
         // Hanya lompat sekali ketika di ground dan ada swipe up
         if (controller.isGrounded && SwipeManager.swipeup)
         {

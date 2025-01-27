@@ -17,12 +17,12 @@ public class Coins : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    { 
         if (other.tag == "Player")
         {
             FindObjectOfType<AudioManager>().PlaySound("PickCoin");
             PlayerManager.numberOfscore += 1;
-            Debug.Log("Coins:"+PlayerManager.numberOfscore);
+            Debug.Log("Score:"+PlayerManager.numberOfscore);
             Destroy(gameObject);
         }
     }

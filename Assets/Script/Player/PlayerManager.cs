@@ -14,8 +14,8 @@ public class PlayerManager : MonoBehaviour
      
       void Start()
     {
-        gameover = false;
         Time.timeScale = 1;
+        gameover = false;
         isGameStarted = false;
         numberOfscore = 0;
 }
@@ -25,15 +25,11 @@ public class PlayerManager : MonoBehaviour
     {
         if (gameover)
         {
-            Time.timeScale = 0;
             GameOverPanel.SetActive(true);
-        }
-        ScoreText.text = "SCORE:" + numberOfscore;
-        
-
-
-
-        if (SwipeManager.tap)
+            Time.timeScale = 0;
+         }
+        ScoreText.text = "Score:" + numberOfscore;
+         if (SwipeManager.tap && !isGameStarted)
         {
             isGameStarted = true;
             Destroy(startingText);
