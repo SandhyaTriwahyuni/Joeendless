@@ -8,6 +8,12 @@ public class Events : MonoBehaviour
         SceneManager.LoadScene("Level");
     }
 
+    public void BACK()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+
     public void QuitGame()
     {
         Application.Quit();
